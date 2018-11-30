@@ -6,4 +6,5 @@ package com.fhr.nedis.core.command;
  * @description
  */
 public interface ListCommands {
+
 }

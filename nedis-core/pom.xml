@@ -11,5 +11,12 @@
 
     <artifactId>nedis-core</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.fhr.nedis</groupId>
+            <artifactId>nedis-utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

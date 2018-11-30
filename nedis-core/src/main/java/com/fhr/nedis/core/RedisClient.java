@@ -8,7 +8,4 @@ import java.util.concurrent.Future;
  * @description Redis Client interface.
  */
 public interface RedisClient {
-    Future<String> get(String key);
-
-    void getAsnc(String key, InvokeHandler handler);
 }
