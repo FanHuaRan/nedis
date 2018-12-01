@@ -6,13 +6,13 @@ package com.fhr.nedis.core.protocol.response;
  * @description
  */
 public class IntegerResponse extends RedisResponse {
-    private final int value;
+    private final Long value;
 
-    public IntegerResponse(int value) {
+    public IntegerResponse(Long value) {
         this.value = value;
     }
 
-    public int getValue() {
+    public Long getValue() {
         return value;
     }
 

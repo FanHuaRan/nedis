@@ -7,5 +7,5 @@ package com.fhr.nedis.core;
  */
 @FunctionalInterface
 public interface InvokeHandler {
-    void handler(Throwable throwable, Object resp);
+    void handle(Throwable throwable, Object resp);
 }

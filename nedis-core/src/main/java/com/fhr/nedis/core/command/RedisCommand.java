@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
  *
  * @description
  */
-public enum RedisCommands {
+public enum RedisCommand {
     //// Key commands
     DEL, DUMP, EXISTS, EXPIRE, EXPIREAT, KEYS, MIGRATE, MOVE, OBJECT, PERSIST, PEXPIRE,
     PEXPIREAT, PTTL, RANDOMKEY, RENAME, RENAMENX, RESTORE, SORT, TTL, TYPE, SCAN,
@@ -55,7 +55,7 @@ public enum RedisCommands {
 
     protected final byte[] bytes;
 
-    RedisCommands() {
+    RedisCommand() {
         this.bytes = name().replace(WHITE_SPACE_FLAG, " ")
                 .getBytes(StandardCharsets.UTF_8);
     }
