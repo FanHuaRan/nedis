@@ -10,7 +10,7 @@ import java.util.concurrent.Future;
  * @description Redis Client interface.
  */
 public interface RedisClient {
-    Future<Object> execCommand(RedisCommand command, Object... params);
+    <T> Future<T> execCommand(RedisCommand command, Object... params);
 
     void execCommand(RedisCommand command, InvokeHandler invokeHandler, Object... params);
 }
