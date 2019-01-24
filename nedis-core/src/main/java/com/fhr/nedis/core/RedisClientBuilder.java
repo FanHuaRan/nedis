@@ -1,5 +1,6 @@
 package com.fhr.nedis.core;
 
+import com.fhr.nedis.core.protocol.RedisDuplexHandler;
 import com.fhr.nedis.core.protocol.request.RedisRequestEncoder;
 import com.fhr.nedis.core.protocol.response.RedisResponseDecoder;
 import io.netty.bootstrap.Bootstrap;
@@ -23,16 +24,18 @@ public class RedisClientBuilder {
         return host;
     }
 
-    public void setHost(String host) {
+    public RedisClientBuilder setHost(String host) {
         this.host = host;
+        return this;
     }
 
     public int getPort() {
         return port;
     }
 
-    public void setPort(int port) {
+    public RedisClientBuilder setPort(int port) {
         this.port = port;
+        return this;
     }
 
     public RedisClient build() {
@@ -46,8 +49,12 @@ public class RedisClientBuilder {
 
                 @Override
                 protected void initChannel(Channel ch) throws Exception {
+                    // TODO 空闲状态监测
                     ch.pipeline().addLast(new RedisResponseDecoder());// 响应解码器
+                    // TODO ping-pong型心跳处理器和断线重连
                     ch.pipeline().addLast(new RedisRequestEncoder());// 请求编码器
+                    // 核心处理器
+                    ch.pipeline().addLast(new RedisDuplexHandler());
                 }
             });
 

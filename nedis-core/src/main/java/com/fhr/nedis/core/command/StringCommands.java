@@ -12,5 +12,9 @@ import java.util.concurrent.Future;
 public interface StringCommands {
     Future<String> get(String key);
 
-    void getAsnc(String key, InvokeHandler handler);
+    void get(String key, InvokeHandler handler);
+
+    Future<Integer> set(String key, String value);
+
+    void set(String key, String value, InvokeHandler invokeHandler);
 }

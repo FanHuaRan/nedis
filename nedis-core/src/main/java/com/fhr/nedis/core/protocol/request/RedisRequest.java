@@ -1,5 +1,8 @@
 package com.fhr.nedis.core.protocol.request;
 
+import com.fhr.nedis.core.InvokeHandler;
+import io.netty.util.concurrent.Promise;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,6 +15,8 @@ import java.util.stream.Collectors;
  */
 public class RedisRequest {
     private final List<Object> params = new LinkedList<>();
+
+    private Promise<Object> promise;
 
     public List<Object> getParams() {
         return params;
@@ -32,10 +37,19 @@ public class RedisRequest {
                 .collect(Collectors.toList()));
     }
 
+    public Promise<Object> getPromise() {
+        return promise;
+    }
+
+    public void setPromise(Promise<Object> promise) {
+        this.promise = promise;
+    }
+
     @Override
     public String toString() {
         return "RedisRequest{" +
                 "params=" + params +
+                ", promise=" + promise +
                 '}';
     }
 }
